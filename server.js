@@ -10,10 +10,12 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 // so that any module that is loaded after this module can use
 // the User model without having to load it by itself.
 var mongoose = require('./config/mongoose'),
-    express = require('./config/express');
+    express = require('./config/express'),
+    passport = require('./config/passport');
 
 var db = mongoose();
 var app = express();
+var passport = passport();
 
 app.listen(3000);
 
