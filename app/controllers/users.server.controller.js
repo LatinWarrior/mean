@@ -24,10 +24,13 @@ var getErrorMessage = function (err) {
                 message;
         }
     }
+    
     return message;
 };
 
 exports.renderSignin = function (req, res, next) {
+    
+    console.log('In users.server.controller.js - renderSignin');
 
     if (!req.user) {
         res.render('signin', {
@@ -35,11 +38,14 @@ exports.renderSignin = function (req, res, next) {
             messages: req.flash('error') || req.flash('info')
         });
     } else {
+        console.log('In users.server.controller.js - renderSignin - No req.user');
         return res.redirect('/');
     }
 };
 
 exports.renderSignup = function (req, res, next) {
+    
+    console.log('In users.server.controller.js - renderSignup');
 
     if (!req.user) {
         res.render('signup', {
@@ -47,11 +53,14 @@ exports.renderSignup = function (req, res, next) {
             messages: req.flash('error')
         });
     } else {
+        console.log('In users.server.controller.js - renderSignup - No req.user');
         return res.redirect('/');
     }
 };
 
 exports.signup = function (req, res, next) {
+    
+    console.log('In users.server.controller.js - signup');
     
     if (!req.user) {
         
@@ -66,12 +75,14 @@ exports.signup = function (req, res, next) {
                 req.flash('error', message);
                 return res.redirect('/signup');
             }
+            
             req.login(user, function (err) {
                 if (err) return next(err);
                 return res.redirect('/');
             });
         });
     } else {
+        console.log('In users.server.controller.js - signup - No req.user');
         return res.redirect('/');
     }
 };

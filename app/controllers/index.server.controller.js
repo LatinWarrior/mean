@@ -5,6 +5,8 @@
 exports.render = function(req, res){
     //res.send('Hello World');
     
+    console.log('In index.server.controller.js');
+    
     if (req.session.lastVisit){
         console.log(req.session.lastVisit);
     }
@@ -12,7 +14,8 @@ exports.render = function(req, res){
     req.session.lastVisit = new Date();
     
     res.render('index', {
-        title: 'Hello World'
+        title: 'Hello World. Here I am. ',
+        userFullName: req.user ? req.user.fullName : ''
     });
 };
 

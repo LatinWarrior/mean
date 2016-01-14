@@ -3,6 +3,9 @@
 'use strict'
 
 module.exports = function (app){
-    var index = require('../controllers/index.server.controller.js');
+    
+    console.log('In index.server.routes.js');
+    
+    var index = require('../../app/controllers/index.server.controller.js');
     app.get('/', index.render);
 }

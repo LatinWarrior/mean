@@ -9,9 +9,13 @@ var config = require('./config'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
     session = require('express-session'),
+    flash = require('connect-flash'),
     passport = require('passport');
 
 module.exports = function () {
+    
+    console.log('In express.js');
+    
     var app = express();
 
     if (process.env.NODE_ENV === 'development') {
@@ -23,7 +27,7 @@ module.exports = function () {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-
+    
     app.use(bodyParser.json());
     app.use(methodOverride());
     
@@ -35,6 +39,8 @@ module.exports = function () {
 
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
+    
+    app.use(flash());
     
     app.use(passport.initialize());
     app.use(passport.session());
