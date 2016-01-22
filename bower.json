@@ -1,0 +1,29 @@
+{
+  "name": "mean",
+  "description": "Mean application",
+  "main": "server.js",
+  "authors": [
+    "Luis"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "MEAN",
+    "MongoDB",
+    "Express",
+    "AngularJS",
+    "NodeJS"
+  ],
+  "homepage": "https://github.com/LatinWarrior/mean",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9"
+  }
+}
